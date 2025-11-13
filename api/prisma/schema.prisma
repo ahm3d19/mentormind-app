@@ -1,0 +1,115 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id       String @id @default(cuid())
+  email    String @unique
+  name     String
+  role     UserRole @default(teacher)
+  schoolId String
+  school   School @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  
+  classes Class[]
+  
+  @@map("users")
+}
+
+model School {
+  id   String @id @default(cuid())
+  name String
+  timezone String? @default("UTC")
+  
+  users   User[]
+  classes Class[]
+  
+  @@map("schools")
+}
+
+model Class {
+  id       String @id @default(cuid())
+  name     String
+  schoolId String
+  teacherId String
+  
+  school   School @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  teacher  User @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  students Student[]
+  assignments Assignment[]
+  
+  @@map("classes")
+}
+
+model Student {
+  id      String @id @default(cuid())
+  name    String
+  email   String?
+  classId String
+  
+  class           Class @relation(fields: [classId], references: [id], onDelete: Cascade)
+  submissions     Submission[]
+  practiceSessions PracticeSession[]
+  moodChecks      MoodCheck[]
+  
+  @@map("students")
+}
+
+model Assignment {
+  id              String @id @default(cuid())
+  title           String
+  topic           String
+  dueAt           DateTime
+  timeEstimateMin Int
+  classId         String
+  
+  class       Class @relation(fields: [classId], references: [id], onDelete: Cascade)
+  submissions Submission[]
+  
+  @@map("assignments")
+}
+
+model Submission {
+  id           String @id @default(cuid())
+  scorePct     Float
+  completedAt  DateTime
+  assignmentId String
+  studentId    String
+  
+  assignment Assignment @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+  student    Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  
+  @@map("submissions")
+}
+
+model PracticeSession {
+  id          String @id @default(cuid())
+  startedAt   DateTime
+  durationMin Int
+  accuracyPct Float
+  studentId   String
+  
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  
+  @@map("practice_sessions")
+}
+
+model MoodCheck {
+  id        String @id @default(cuid())
+  date      DateTime
+  moodScore Int    // 1-5
+  studentId String
+  
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  
+  @@map("mood_checks")
+}
+
+enum UserRole {
+  teacher
+  admin
+}
