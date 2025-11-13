@@ -54,7 +54,7 @@ router.post("/login", async (req, res) => {
     if (error instanceof z.ZodError) {
       return res
         .status(400)
-        .json({ error: "Invalid input", details: error.errors });
+        .json({ error: "Invalid input", details: error.issues });
     }
 
     console.error("Login error:", error);
