@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 
+// API base URL - uses environment variable in production
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+
 interface StudentMetric {
   studentId: string;
   studentName: string;
@@ -58,14 +61,11 @@ export default function ClassDetailPage() {
   const fetchClassData = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(
-        `http://localhost:3001/classes/${classId}/metrics`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await fetch(`${API_BASE}/classes/${classId}/metrics`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       if (response.ok) {
         const data = await response.json();
@@ -89,7 +89,7 @@ export default function ClassDetailPage() {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `http://localhost:3001/classes/${classId}/assignments`,
+        `${API_BASE}/classes/${classId}/assignments`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

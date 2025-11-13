@@ -5,6 +5,9 @@ import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 
+// API base URL - uses environment variable in production
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+
 interface Class {
   id: string;
   name: string;
@@ -13,7 +16,7 @@ interface Class {
 }
 
 async function fetchClasses(token: string) {
-  const response = await fetch("http://localhost:3001/classes", {
+  const response = await fetch(`${API_BASE}/classes`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
