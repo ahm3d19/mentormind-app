@@ -1,6 +1,6 @@
 # MentorMind - Teacher Class Insights (MVP)
 
-A full-stack application that enables teachers to view their classes, monitor student metrics, and create assignments. Built as a 24-hour assessment project demonstrating clean architecture, secure access patterns, and thoughtful data modeling.
+A full-stack application that enables teachers to view their classes, monitor student metrics, and create assignments.
 
 ## 🚀 Quick Start
 
