@@ -14,7 +14,7 @@ A full-stack application that enables teachers to view their classes, monitor st
 1. **Clone the repository**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/ahm3d19/mentormind-app.git
    cd mentormind-app
    ```
 
