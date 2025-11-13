@@ -2,6 +2,8 @@
 
 A full-stack application that enables teachers to view their classes, monitor student metrics, and create assignments.
 
+## Live Demo: https://mentormind-app-psi.vercel.app
+
 ## 🚀 Quick Start
 
 ### Prerequisites
