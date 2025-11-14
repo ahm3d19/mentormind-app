@@ -6,7 +6,7 @@ A full-stack application that enables teachers to view their classes, monitor st
 
 ### Note
 
-First run Backend then Frontend because after 15 min its going to sleep mode so its essential to run first backend then frontend
+Run the Backend first, followed by the Frontend. This is essential because the backend service enters a sleep mode due to 15 min of inactivity
 
 ### Backend
 
