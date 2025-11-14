@@ -2,7 +2,17 @@
 
 A full-stack application that enables teachers to view their classes, monitor student metrics, and create assignments.
 
-## Live Demo: https://mentormind-app-psi.vercel.app
+## Live Demo: 
+
+### Note: First run Backend then Frontend because after 15 min its going to sleep mode so its essential to run first backend then frontend
+
+### Backend
+
+https://mentormind-app.onrender.com
+
+### Frontend
+
+https://mentormind-app-psi.vercel.app
 
 ## 🚀 Quick Start
 
