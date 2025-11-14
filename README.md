@@ -309,7 +309,7 @@ Tests cover:
 
 ## 📝 CHANGELOG
 
-### Initial Implementation (Day 1)
+### Initial Implementation
 
 - ✅ Set up Express.js backend with TypeScript
 - ✅ Configured Prisma with SQLite database
@@ -340,43 +340,9 @@ Tests cover:
 - React Query for efficient data fetching and caching
 - Tailwind CSS for rapid UI development
 
-## 🤖 AI Assistance Disclosure
-
-This project utilized AI assistance (Claude via Cursor) for:
-
-- Initial project scaffolding and boilerplate code
-- TypeScript type definitions and interfaces
-- Test setup and configuration
-- Documentation generation
-- Code review and optimization suggestions
-
-All business logic, architecture decisions, and implementation details were developed with human oversight and review.
-
 ## 📚 Additional Documentation
 
 - [API Routes Documentation](./api/ROUTES.md) - Detailed API endpoint documentation
 - [API README](./api/README.md) - Backend setup and structure
 - [Web README](./web/README.md) - Frontend setup and structure
 - [Architecture Diagram](./docs/architecture.md) - System architecture visualization
-
-## 🎯 Assessment Deliverables Checklist
-
-- ✅ GitHub repo with `api/` and `web/` folders
-- ✅ README.md with setup, decisions, auth, metrics, AWS notes
-- ✅ Architecture diagram in `docs/architecture.md`
-- ✅ Backend test (`api/__tests__/`)
-- ✅ Frontend test (`web/__tests__/`)
-- ✅ Seed data script (`api/prisma/seed.ts`)
-- ✅ CHANGELOG documenting development process
-
-## 🚧 Known Limitations & Future Improvements
-
-- Password authentication is mocked (should use bcrypt)
-- No refresh token mechanism (tokens expire after 24h)
-- No pagination on large datasets
-- No rate limiting on API endpoints
-- Metrics computed on-demand (could be cached)
-- No real-time updates (polling-based)
-- Limited error handling UI
-- No export functionality (stretch goal)
-
