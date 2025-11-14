@@ -4,7 +4,9 @@ A full-stack application that enables teachers to view their classes, monitor st
 
 ## Live Demo: 
 
-### Note: First run Backend then Frontend because after 15 min its going to sleep mode so its essential to run first backend then frontend
+### Note: 
+
+First run Backend then Frontend because after 15 min its going to sleep mode so its essential to run first backend then frontend
 
 ### Backend
 
